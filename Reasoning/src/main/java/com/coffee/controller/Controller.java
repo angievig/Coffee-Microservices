@@ -1,7 +1,7 @@
 package com.coffee.controller;
 
 import javax.json.JsonObject;
-
+import javax.json.JsonValue;
 
 import org.json.simple.JSONObject;
 import org.springframework.http.MediaType;
@@ -45,8 +45,8 @@ public class Controller {
 		String modelData= data.split("separadorcoffee")[1];
 		Reasoning reasoning = new Reasoning();
 		JsonObject solution = reasoning.coffeeCompile(mnz, frontEndData,modelData, 1);
-		System.out.println("SOLUCION:"+solution.toString());
-		return solution.toString();
+	//	System.out.println("SOLUCION:"+solution.get("solutions"));
+		return solution.get("solutions")+"";
 	}
 	
 	@CrossOrigin

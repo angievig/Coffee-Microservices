@@ -57,5 +57,8 @@ RUN ls
 #Clonamos el repositorio de JminiZinc
 WORKDIR /home
 RUN git clone https://github.com/siemens/JMiniZinc
+RUN git clone https://github.com/joancolina819/Coffee-Microservices
+WORKDIR /home/Coffee-Microservices/Reasoning/target
 RUN ls 
 RUN minizinc --solvers
+ENTRYPOINT ["java","-jar", "Reasoning-0.0.1-SNAPSHOT.jar"]
