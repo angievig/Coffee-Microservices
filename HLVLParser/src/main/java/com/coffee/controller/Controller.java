@@ -42,6 +42,7 @@ public class Controller {
 		List<String> params = new ArrayList<String>();
 		String command = "java -jar " + "\""+DIR + "\\dependencies\\HLVLParserV1.2.jar"+"\" "+  "\"" +DIR+ HLVL_DIR + FileManager.DEFAULT_NAME
 				+ ".hlvl"+"\"";
+		System.out.println(command);
 		params.add(command);
 		executor.setCommandInConsole(params);
 		executor.runCmd();
