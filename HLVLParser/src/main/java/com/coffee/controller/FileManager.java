@@ -34,10 +34,10 @@ public class FileManager {
 	}
 
 	public String fileReader() throws IOException {
-		byte[] encoded = Files.readAllBytes(Paths.get(Controller.DIR + "\\src-gen\\"+modelName+".mzn"));
+		byte[] encoded = Files.readAllBytes(Paths.get(Controller.DIR + "/src-gen/"+modelName+".mzn"));
 		String mzn = new String(encoded, "UTF-8");
 
-		encoded = Files.readAllBytes(Paths.get(Controller.DIR + "\\src-gen\\"+modelName+"_Operations.json"));
+		encoded = Files.readAllBytes(Paths.get(Controller.DIR + "/src-gen/"+modelName+"_Operations.json"));
 		String json = new String(encoded, "UTF-8");
 
 		return mzn + "separadorcoffee" + json;
