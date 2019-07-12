@@ -25,7 +25,7 @@ public class Controller {
 		System.out.println(data.get("data"));
 		return isValid;
 	}
-	
+
 	@CrossOrigin
 	@RequestMapping(value = "/reasoning/oneConfiguration", method = RequestMethod.POST, produces = "application/json")
 	@ResponseBody
@@ -38,6 +38,7 @@ public class Controller {
 				"}\r\n" + 
 				"}";
 		String data= (String)model.get("data");
+		System.out.println("AQUI: "+data);
 		String mnz= data.split("separadorcoffee")[0];
 		String modelData= data.split("separadorcoffee")[1];
 		Reasoning reasoning = new Reasoning();
@@ -45,7 +46,7 @@ public class Controller {
 		System.out.println("SOLUCION:"+solution.get("solutions"));
 		return solution.get("solutions")+"";
 	}
-	
+
 	@CrossOrigin
 	@RequestMapping(value = "/reasoning/nConfigurations", method = RequestMethod.POST, produces = "application/json")
 	@ResponseBody
@@ -64,5 +65,5 @@ public class Controller {
 		JsonObject solution = reasoning.coffeeCompile((String) model.get("data"), frontEndData,(String) configuration.get("data"), n);
 		return solution.toString();
 	}
-	
+
 }

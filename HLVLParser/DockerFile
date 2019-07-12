@@ -20,7 +20,7 @@ RUN  apt-get update \
   && apt-get install -y wget \
   && rm -rf /var/lib/apt/lists/*
 #Clonamos el repositorio
-RUN ls
+RUN ls -la
 RUN git clone https://github.com/joancolina819/Coffee-Microservices
 WORKDIR /home/Coffee-Microservices/HLVLParser
 #RUN ls
