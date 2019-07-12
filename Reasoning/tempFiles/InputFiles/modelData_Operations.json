@@ -1,15 +1,4 @@
 {
- "problemType" : "INT_ATT",
-"operationSingle" : ["validModel","numberOfConfigurations"],
-"validConfiguration" :
-[
-	{
-	"element" : "DFS",
-	"value" : "true"
-	},
-	{
-	"element" : "mstprim",
-	"value" : "false"
-	}
-]
-}  
+ "problemType" : "BASIC",
+ "parsingTime"  : "34ms"
+		}

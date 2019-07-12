@@ -31,6 +31,7 @@ public class Controller {
 	public String hlvlParser(@RequestBody JSONObject data) throws Exception {
 		System.out.println("YA llego la peticion");
 		String content = (String) data.get("data");
+		fileCreator.getName(content);
 		File file = fileCreator.createFile(content);
 		executor.initialize(DIR);
 		parseHLVL();

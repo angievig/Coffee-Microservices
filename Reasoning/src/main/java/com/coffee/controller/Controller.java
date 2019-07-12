@@ -33,19 +33,16 @@ public class Controller {
 		//TODO:fix me
 		String frontEndData="{\r\n" + 
 				" \"solverSelected\" : \"\",\r\n" + 
-				" \"problemType\":\"BOOL\",\r\n" + 
 				"\"configuration\" : \r\n" + 
-				"	{\r\n" + 
-				"	\"DFS\":true,\r\n" + 
-				"	\"mstprim\":false\r\n" + 
-				"	}\r\n" + 
+				"{\r\n" + 
+				"}\r\n" + 
 				"}";
 		String data= (String)model.get("data");
 		String mnz= data.split("separadorcoffee")[0];
 		String modelData= data.split("separadorcoffee")[1];
 		Reasoning reasoning = new Reasoning();
 		JsonObject solution = reasoning.coffeeCompile(mnz, frontEndData,modelData, 1);
-	//	System.out.println("SOLUCION:"+solution.get("solutions"));
+		System.out.println("SOLUCION:"+solution.get("solutions"));
 		return solution.get("solutions")+"";
 	}
 	
