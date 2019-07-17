@@ -53,13 +53,14 @@ RUN ls
 #Descargando el .sh que necesita picat para funcionar
 WORKDIR /home/Picat
 RUN wget https://raw.githubusercontent.com/joancolina819/Coffee-Microservices/master/Reasoning/archivos%20de%20solvers/sh%20files/picat.sh
-RUN ls
+RUN ls -la
 #Clonamos el repositorio de JminiZinc
 WORKDIR /home
 #RUN git clone https://github.com/siemens/JMiniZinc
-RUN ls -la
+RUN ls 
 RUN git clone https://github.com/joancolina819/Coffee-Microservices
 RUN minizinc --solvers
 WORKDIR /home/Coffee-Microservices/Reasoning
 RUN ls
+EXPOSE 9091
 ENTRYPOINT ["java","-jar", "Reasoning-0.0.1-SNAPSHOT.jar"]

@@ -20,8 +20,8 @@
 	</properties>
 
 	<dependencies>
-	<!--  	<dependency> <groupId>com</groupId> <artifactId>reasoning</artifactId> 
-			<version>1</version> </dependency> -->
+		 <dependency> <groupId>com</groupId> <artifactId>coffeereasoning</artifactId> 
+			<version>1</version> </dependency> 
 		<dependency>
 			<groupId>com</groupId>
 			<artifactId>core</artifactId>
@@ -69,6 +69,49 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+		
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<fork>true</fork>
+					<executable>C:\Program Files\Java\jdk1.8.0_201\bin\javac.exe</executable>
+				</configuration>
+			</plugin> 
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/lib</outputDirectory>
+							<overWriteReleases>false</overWriteReleases>
+							<overWriteSnapshots>false</overWriteSnapshots>
+							<overWriteIfNewer>true</overWriteIfNewer>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>lib/</classpathPrefix>
+							<mainClass>com.coffee.ReasoningApplication</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+
 		</plugins>
 	</build>
 
