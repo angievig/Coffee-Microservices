@@ -57,7 +57,7 @@ RUN ls
 #Clonamos el repositorio de JminiZinc
 WORKDIR /home
 #RUN git clone https://github.com/siemens/JMiniZinc
-RUN ls 
+RUN ls -la
 RUN git clone https://github.com/joancolina819/Coffee-Microservices
 RUN minizinc --solvers
 WORKDIR /home/Coffee-Microservices/Reasoning
