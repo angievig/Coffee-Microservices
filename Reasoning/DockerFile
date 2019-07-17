@@ -43,8 +43,9 @@ RUN tar xf picat26_linux64.tar.gz
 
 #Descargamos las librerias de picat
 WORKDIR /home/MiniZincIDE-2.3.0-bundle-linux/share/minizinc
-RUN wget http://picat-lang.org/flatzinc/picat_globals.tar.gz -O picat_sat
-RUN tar xf picat_sat
+RUN wget http://picat-lang.org/flatzinc/picat_globals.tar.gz
+RUN tar xf picat_globals.tar.gz
+RUN mv globals picat_sat
 
 #Descargando el .msc que necesita minizinc para funcionar
 WORKDIR /home/MiniZincIDE-2.3.0-bundle-linux/share/minizinc/solvers
@@ -53,6 +54,7 @@ RUN ls
 #Descargando el .sh que necesita picat para funcionar
 WORKDIR /home/Picat
 RUN wget https://raw.githubusercontent.com/joancolina819/Coffee-Microservices/master/Reasoning/archivos%20de%20solvers/sh%20files/picat.sh
+RUN chmod +x picat.sh
 RUN ls 
 #Clonamos el repositorio de JminiZinc
 WORKDIR /home
@@ -60,7 +62,7 @@ WORKDIR /home
 RUN ls 
 RUN git clone https://github.com/joancolina819/Coffee-Microservices
 RUN minizinc --solvers
-WORKDIR /home/Coffee-Microservices/Reasoning/target
+WORKDIR /home/Coffee-Microservices/Reasoning/visibleTarget
 RUN ls
 EXPOSE 9091
 ENTRYPOINT ["java","-jar", "Reasoning-0.0.1-SNAPSHOT.jar"]
