@@ -1,3 +1,3 @@
 #!/bin/bash
-picat /home/Picat/lib/fzn_picat_sat.pi $* 
-/home/Picat
+./picat /home/Picat/lib/fzn_picat_sat.pi $* 
+
