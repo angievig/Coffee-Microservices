@@ -17,10 +17,10 @@ public class Controller {
 	@CrossOrigin
 	@RequestMapping(value = "/coffeMP/feature2Hlvl", method = RequestMethod.POST, produces = "text/plain")
 	@ResponseBody
-	//FIXME corregir el parser de featureIDE
 	public String executeTest(@RequestBody JSONObject data) throws Exception {
-			FeatureIDEToHLVL fParser = new FeatureIDEToHLVL();
+		FeatureIDEToHLVL fParser = new FeatureIDEToHLVL();
 		System.out.println(data);
+		System.out.println(fParser.parse((String) data.get("data")));
 		return fParser.parse((String) data.get("data"));
 	}
 
@@ -30,8 +30,8 @@ public class Controller {
 	public String varXML2Hlvl(@RequestBody JSONObject data) throws Exception {
 		System.out.println(data);
 		VariamosXMLToHlvlParser vParser = new VariamosXMLToHlvlParser();
-	
-	return vParser.parse((String) data.get("data"));
+
+		return vParser.parse((String) data.get("data"));
 	}
 
 	@CrossOrigin
@@ -40,5 +40,12 @@ public class Controller {
 	public String splot2Hlvl(@RequestBody String data) {
 
 		return "";
+	}
+
+	@CrossOrigin
+	@RequestMapping(value = "/coffeMP/modelConfigurations", method = RequestMethod.POST)
+	@ResponseBody
+	public void getModelConfigurations(@RequestBody JSONObject data) {
+		System.out.println(data.get("data"));
 	}
 }
