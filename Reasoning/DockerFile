@@ -48,8 +48,7 @@ RUN mv globals picat_sat
 #Descargando el .msc que necesita minizinc para funcionar
 WORKDIR /home/MiniZincIDE-2.3.0-bundle-linux/share/minizinc/solvers
 RUN wget https://github.com/joancolina819/Coffee-Microservices/raw/master/Reasoning/archivos%20de%20solvers/msc/picat_sat_cmd_line.msc
-RUN ls
-RUN ls
+RUN ls -la
 #Descargando el .sh que necesita picat para funcionar
 WORKDIR /home/Picat
 RUN wget https://raw.githubusercontent.com/joancolina819/Coffee-Microservices/master/Reasoning/archivos%20de%20solvers/sh%20files/picat.sh
@@ -59,10 +58,11 @@ RUN ls
 WORKDIR /home
 #RUN git clone https://github.com/siemens/JMiniZinc
 RUN ls 
+ENV PATH="/home/Picat:${PATH}"
+RUN echo $PATH 
 RUN git clone https://github.com/joancolina819/Coffee-Microservices
 RUN minizinc --solvers
 WORKDIR /home/Coffee-Microservices/Reasoning/visibleTarget
 RUN ls
-ENV PATH="/home/Picat:${PATH}"
 EXPOSE 9091
 ENTRYPOINT ["java","-jar", "Reasoning-0.0.1-SNAPSHOT.jar"]
